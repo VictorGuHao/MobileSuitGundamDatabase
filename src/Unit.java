@@ -29,11 +29,11 @@ public class Unit
 
     public double getWeight() { return weight; }
 
-    private double getMaxGross() { return maxGross; }
+    public double getMaxGross() { return maxGross; }
 
     public String getUnitType() { return unitType; }
 
-    private boolean getTvOrNot() { return tvOrNot; }
+    public boolean getTvOrNot() { return tvOrNot; }
 
     public String toString()
     {
@@ -42,9 +42,23 @@ public class Unit
         data += getSpaces(1);
         data += getSpaces(10 - codename.length()) + codename;
         data += " Height: " + height + " meters";
-        data += " Weight: " + weight + " metric tons";
-        data += " Max Gross: " + maxGross + " metric tons";
-        data += " Unit Type: " + unitType;
+        if (weight < 100)
+            data += " Weight: " + getSpaces(2) + weight + " metric tons";
+        else {
+            if (weight < 1000)
+                data += " Weight: " + getSpaces(1) + weight + " metric tons";
+            else
+                data += " Weight: " + weight + " metric tons";
+        }
+        if (maxGross < 100)
+            data += " Weight: " + getSpaces(2) + maxGross + " metric tons";
+        else {
+            if (maxGross < 1000)
+                data += " Weight: " + getSpaces(1) + maxGross + " metric tons";
+            else
+                data += " Weight: " + maxGross + " metric tons";
+        }
+        data += " Unit Type: "+ getSpaces(12 - unitType.length()) + unitType;
         data += " TV Only: " + tvOrNot;
         return data;
     }

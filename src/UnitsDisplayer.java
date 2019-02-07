@@ -30,6 +30,31 @@ public class UnitsDisplayer
             input.close();
 
             System.out.println(mu);
+            System.out.println();
+
+            mu.sortByCodename();
+            System.out.print(mu);
+
+            System.out.println();
+
+            mu.sortByModelNumber();
+            System.out.print(mu);
+
+            System.out.println();
+
+            mu.sortByCodename();
+            System.out.println(mu);
+
+            System.out.println();
+
+            System.out.println(mu.getByCodename("Gundam"));
+            System.out.println();
+            System.out.println(mu.getByUnitType("Mobile Suit"));
+            System.out.println();
+            System.out.println(mu.getByTVOnly());
+            System.out.println();
+            System.out.println("The average height for all unit is: " + mu.getAverageHeightForAllUnit() + " meters.");
+            System.out.println("The average weight for all Mobile Suit is: " + mu.getAverageWeightByUnitType("Mobile Suit") + " metric tons.");
         }
     }
 }
